@@ -12,25 +12,25 @@ from rasa_sdk.events import SlotSet, EventType
 
 class ValidatePage(FormValidationAction):
     def name(self) -> Text:
-        return "validate_page"
+        return "validate_navigate_form"
 
     @staticmethod
-    def securities_list() -> List[Text]:
-        """Database of supported cuisines"""
+    def pages_list() -> List[Text]:
+        """supported pages"""
         pages_list = ["orders", "placements", "dashboard","setting","profile","portfolio"]
 
         return pages_list
 
-    def validate_stock(
+    def validate_page(
         self,
         slot_value: Any,
         dispatcher: CollectingDispatcher,
         tracker: Tracker,
         domain: DomainDict,
     ) -> Dict[Text, Any]:
-        """Validate stock value."""
+        """Validate page."""
 
-        if slot_value.lower() in self.securities_list():
+        if slot_value.lower() in self.pages_list():
             # validation succeeded, set the value of the "cuisine" slot to value
             return {"page": slot_value}
         else:

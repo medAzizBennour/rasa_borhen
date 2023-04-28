@@ -70,8 +70,8 @@ actions:
 - action_submit_order_form
 - action_ask_stock_company
 - action_ask_stock_number
-- validate_stock_company
+- validate_stock_form
 # navigate
 - action_submit_navigate_form
 - action_ask_page
-- validate_page
+- validate_navigate_form
