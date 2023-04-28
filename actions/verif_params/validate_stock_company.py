@@ -16,11 +16,11 @@ class ValidateStockCompany(FormValidationAction):
 
     @staticmethod
     def securities_list() -> List[Text]:
-        """Database of supported cuisines"""
+        """Database of stocks"""
 
         return ["tesla", "nvidia", "apple","google"]
 
-    def validate_stock(
+    def validate_stock_company(
         self,
         slot_value: Any,
         dispatcher: CollectingDispatcher,
@@ -33,6 +33,11 @@ class ValidateStockCompany(FormValidationAction):
             # validation succeeded, set the value of the "cuisine" slot to value
             return {"stock_company": slot_value}
         else:
+            response_message="Invalid page"
+        
+
+
+            dispatcher.utter_message(text=response_message)
             # validation failed, set this slot to None so that the
             # user will be asked for the slot again
             return {"stock_company": None}
