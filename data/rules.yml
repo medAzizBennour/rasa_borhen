@@ -1,0 +1,52 @@
+version: "3.1"
+
+rules:
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Say 'I am a bot' anytime the user challenges
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+
+- rule: Activate buy stock form
+  steps:
+  - intent: buy_stock
+  - action: buy_stock_form
+  - active_loop: buy_stock_form
+
+- rule: Submit buy stock form
+  condition:
+  # Condition that form is active.
+  - active_loop: buy_stock_form
+  steps:
+  # Form is deactivated
+  - action: buy_stock_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  # The actions we want to run when the form is submitted.
+  - action: action_submit_order_form
+
+- rule: Activate navigate form
+  steps:
+  - intent: navigate
+  - action: navigate_form
+  - active_loop: navigate_form
+
+- rule: Submit buy stock form
+  condition:
+  # Condition that form is active.
+  - active_loop: navigate_form
+  steps:
+  # Form is deactivated
+  - action: navigate_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  # The actions we want to run when the form is submitted.
+  - action: action_submit_navigate_form
