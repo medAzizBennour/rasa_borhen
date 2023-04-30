@@ -2,17 +2,6 @@ version: "3.1"
 
 rules:
 
-- rule: Say goodbye anytime the user says goodbye
-  steps:
-  - intent: goodbye
-  - action: utter_goodbye
-
-- rule: Say 'I am a bot' anytime the user challenges
-  steps:
-  - intent: bot_challenge
-  - action: utter_iamabot
-
-
 - rule: Activate buy stock form
   steps:
   - intent: buy_stock
@@ -38,7 +27,7 @@ rules:
   - action: navigate_form
   - active_loop: navigate_form
 
-- rule: Submit buy stock form
+- rule: Submit navigate form
   condition:
   # Condition that form is active.
   - active_loop: navigate_form
@@ -51,20 +40,19 @@ rules:
   # The actions we want to run when the form is submitted.
   - action: action_submit_navigate_form
 
-- rule: Ask the user to rephrase whenever they send a message with low NLU confidence
+- rule: Handle fallback intent whenever they send a message with low NLU confidence
   steps:
   - intent: nlu_fallback
-  - action: utter_please_rephrase
+  - action: action_default_fallback
+
 - rule: Activate search form
   steps:
   - intent: search
   - action: search_form
   - active_loop: search_form
-- rule: handle error
-  steps:
-  - intent: inform_stock
-  - action: action_handle_fail_inform
-- rule: Submit buy stock form
+  
+
+- rule: Submit search form
   condition:
   # Condition that form is active.
   - active_loop: search_form
@@ -74,5 +62,67 @@ rules:
   - active_loop: null
   - slot_was_set:
     - requested_slot: null
-  # The actions we want to run when the form is submitted.
   - action: action_submit_search_form
+
+- rule: Activate filter form
+  steps:
+  - intent: filter
+  - action: filter_form
+  - active_loop: filter_form
+
+- rule: Submit filter form
+  condition:
+  # Condition that form is active.
+  - active_loop: filter_form
+  steps:
+  # Form is deactivated
+  - action: filter_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_submit_filter_form
+
+
+- rule: Activate sell stock form
+  steps:
+  - intent: sell_stock
+  - action: sell_stock_form
+  - active_loop: sell_stock_form
+
+- rule: Submit sell stock form
+  condition:
+  # Condition that form is active.
+  - active_loop: sell_stock_form
+  steps:
+  # Form is deactivated
+  - action: sell_stock_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  # The actions we want to run when the form is submitted.
+  - action: action_submit_order_form
+
+- rule: handle error
+  steps:
+  - intent: inform_stock
+  - action: action_handle_fail_inform
+
+- rule: goodbye action
+  steps:
+    - intent: goodbye
+    - action: action_social_expresses
+
+- rule: greet action
+  steps:
+    - intent: greet
+    - action: action_social_expresses
+
+- rule: thank action
+  steps:
+    - intent: thank
+    - action: action_social_expresses
+
+- rule: i am a bot action
+  steps:
+    - intent: bot_challenge
+    - action: action_social_expresses

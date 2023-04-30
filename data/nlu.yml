@@ -35,6 +35,18 @@ nlu:
     - of course
     - that sounds good
     - correct
+- intent: happy
+  examples: |
+    - Thank you!
+    - Thanks for your help.
+    - I appreciate it.
+    - Thanks a lot.
+    - Thank you so much.
+    - Thanks for the assistance.
+    - Thanks for your time.
+    - Thank you for your kind support.
+    - I'm grateful for your help.
+    - Many thanks.
 - intent: deny
   examples: |
     - no
@@ -82,6 +94,12 @@ nlu:
     - are you a human?
     - am I talking to a bot?
     - am I talking to a human?
+    - who are you?
+    - who am i talking to?
+    - what are you?
+    - are you sure you are a bot?
+    - bot?
+    - human?
 - intent: buy_stock
   examples: |
     - purchase some stocks
@@ -152,17 +170,6 @@ nlu:
   examples: |
     - search for [articles about trading](query)
     - Please search for [information about stop loss orders](query)
-    - Search for [news about the stock market today](query)
-    - Please search for [videos about day trading strategies](query) on YouTube
-    - Find me [books on Amazon about options trading](query)
-    - Find me [articles on Google about value investing](query)
-    - Please search for [videos about swing trading](query) on YouTube
-    - Search for [news about the cryptocurrency market](query)
-    - Please look up [news articles about the stock market today](query)
-    - Find me some information about [day trading strategies](query)
-    - Can you search for [books on technical analysis](query) for me?
-    - Please find me some [videos about futures trading](query)
-    - Can you find some resources about [swing trading](query)?
     - Please look up [articles about the importance of diversification in investing](query)
     - Can you find me some resources about [algorithmic trading](query)?
     - Can you find me some resources about [candlestick chart patterns](query)?
@@ -175,8 +182,6 @@ nlu:
     - Find me [the current stock price for Tesla and Facebook](query)
     - Find me [the stock symbol for Alphabet Inc](query).
     - search for [the importance of trading](query)
-    - search for [information about stop loss orders](query)
-    - Search for [news about the stock market today news today](query)
     - Search for [news about the cryptocurrency marketrency](query)
     - Can you find information about [swing trading](query)?'
     - Please search for [articles about the best stocks to invest in for long-term growth](query)
@@ -186,3 +191,81 @@ nlu:
     - search for [videos about diversification in investing](query)
     - find me some ressources about [portfolio management](query)
     - search for [videos about how to trade](query)
+- intent: fallback
+  examples: |
+    - What is the capital of France?
+    - Who won the Oscar for Best Actor in 2020?
+    - How do I cook a turkey?
+    - Can you recommend a good restaurant in the area?
+    - Tell me a joke.
+    - Define equity.
+    - How do I reset my password?
+    - What's the latest news?
+    - Can you help me find a job?
+    - What are the best places to travel? 
+
+- intent: sell_stock
+  examples: |
+    - sell some stocks
+    - sell me a stock please
+    - i want to sell some shares
+    - sell me a stock
+    - i want to sell a stock
+    - sell me some shares
+    - can i sell some stocks?
+    - can you sell me some shares?
+    - i'd like to sell stocks
+    - i want to sell [tesla](stock_company) stocks
+    - sell me [nvidia](stock_company) shares
+    - i want to sell some [apple](stock_company) shares
+    - sell me [20](stock_number) shares
+    - i want to sell [100](stock_number) stocks
+    - sell me [5](stock_number) stocks
+    - sell me [50](stock_number) shares of [nvidia](stock_company)
+    - sell a stock
+    - sell me another stock
+    - sell [10](stock_number) shares of [tesla](stock_company)
+    - i want to sell [100](stock_number) shares
+    - sell me [100](stock_number) shares of [tesla](stock_company)
+    - sell [100](stock_number) shares of [nvidia](stock_company)
+    - sell me [10](stock_number) shares of [tesla](stock_company)
+    - i want to sell [tesla](stock_company) stock
+
+- intent: filter
+  examples: |
+    - Display the list of [closed](criteria) [orders](filtered_obj)
+    - filter the list of [working](criteria) [orders](filtered_obj)
+    - show me the list of [new](criteria) [orders](filtered_obj) 
+    - filter [filled](criteria) [orders](filtered_obj)
+    - show me the list of [new](criteria) [orders](filtered_obj)
+    - Display the list of [filled](criteria) [orders](filtered_obj) 
+    - filter the list of [working](criteria) [orders](filtered_obj) 
+    - Show me the list of [new](criteria) [orders](filtered_obj) 
+    - Dispaly the list of [closed](criteria) [orders](filtered_obj)
+    - Show me the list of [new](criteria) [orders](filtered_obj) 
+    - Show me the list of [working](criteria) [orders](filtered_obj)
+    - Show me the list of [filled](criteria) [placements](filtered_obj) 
+    - Show me the list of [working](criteria) [placements](filtered_obj) 
+    - Show me the list of [filled](criteria) [placements](filtered_obj) 
+    - Show me the list of [new](criteria) [placements](filtered_obj)
+    - Show me the list of [closed](criteria) [placements](filtered_obj)
+    - Show me the list of [working](criteria) [placements](filtered_obj) 
+    - Show me the list of [new](criteria) [placements](filtered_obj)
+    - Show me the list of [paused](criteria) [placements](filtered_obj) 
+    - Display the list of [working](criteria) [placements](filtered_obj) 
+    - Filter the list of [new](criteria) [placements](filtered_obj) 
+    - Display the list of [filled](criteria) [placements](filtered_obj)
+    - Show me the list of [open](criteria) [placements](filtered_obj) 
+    - Display the list of [filled](criteria) [placements](filtered_obj) 
+    - Filter the list of  [paused](criteria) [placements](filtered_obj)
+    - filter the list of [orders](filtered_obj) by [new](criteria)
+    - filter [new](criteria) [placements](filtered_obj)
+    - filter [closed](criteria) [orders](filtered_obj)
+    - filter [orders](filtered_obj) by [filled](criteria) 
+    - filter the list of [working](criteria) [orders](filtered_obj)
+    - display the list of [working](criteria) [placements](filtered_obj)
+    - filter [orders](filtered_obj)
+    - filter [placements](filtered_obj)
+    
+
+
