@@ -9,12 +9,16 @@ from rasa_sdk.events import SlotSet, EventType
 
 from .form_action.buy_stock_form import AskForStockNumAction,AskForStockCompanyAction
 from .form_action.navigate_form import AskForPageAction
+from .form_action.search_form import AskForQueryAction
+from .form_action.handle_fail_inform import HandleFailInformAction
 
 from .submit_action.submit_navigate_form import SubmitNavigateFormAction
 from .submit_action.submit_order_form import SubmitOrderFormAction
+from .submit_action.submit_search_form import SubmitSearchFormAction
 
 from .verif_params.validate_stock_company import ValidateStockCompany
 from .verif_params.validate_page import ValidatePage
+
 
 
 

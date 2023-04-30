@@ -82,7 +82,6 @@ nlu:
     - are you a human?
     - am I talking to a bot?
     - am I talking to a human?
-  #buy stock nlu
 - intent: buy_stock
   examples: |
     - purchase some stocks
@@ -109,6 +108,9 @@ nlu:
     - buy [100](stock_number) shares of [nvidia](stock_company)
     - buy me [10](stock_number) shares of [tesla](stock_company)
     - i want to buy [tesla](stock_company) stock
+    - buy some shares
+- intent: inform_stock
+  examples: |
     - [nvidia](stock_company)
     - [google](stock_company) shares
     - [100](stock_number) shares
@@ -120,10 +122,13 @@ nlu:
     - [tesla](stock_company) stock
     - [tesla](stock_company)
     - [10](stock_number)
-    - [nvidia](stock_company)
     - [10](stock_number) shares
-
-#navigate nlu
+    - [20](stock_number) shares of [IBM](stock_company)
+    - [100](stock_number) shares of [google](stock_company)
+    - [nvidia](stock_company) stocks
+    - [100](stock_number) shares of [IBM](stock_company)
+    - [nvidia](stock_company)
+    - [20](stock_number) shares of [google](stock_company)
 - intent: navigate
   examples: |
     - navigate to my [potfolio](page)
@@ -142,4 +147,42 @@ nlu:
     - go to [placements](page)
     - navigate to [dashboard](page)
     - navigate to [page](page)
-
+    - [orders](page)
+- intent: search
+  examples: |
+    - search for [articles about trading](query)
+    - Please search for [information about stop loss orders](query)
+    - Search for [news about the stock market today](query)
+    - Please search for [videos about day trading strategies](query) on YouTube
+    - Find me [books on Amazon about options trading](query)
+    - Find me [articles on Google about value investing](query)
+    - Please search for [videos about swing trading](query) on YouTube
+    - Search for [news about the cryptocurrency market](query)
+    - Please look up [news articles about the stock market today](query)
+    - Find me some information about [day trading strategies](query)
+    - Can you search for [books on technical analysis](query) for me?
+    - Please find me some [videos about futures trading](query)
+    - Can you find some resources about [swing trading](query)?
+    - Please look up [articles about the importance of diversification in investing](query)
+    - Can you find me some resources about [algorithmic trading](query)?
+    - Can you find me some resources about [candlestick chart patterns](query)?
+    - Please search for articles about [the best stocks to invest in for long-term growth ](query)
+    - Can you find me some information about [commodities trading](query)?
+    - Can you find me some resources about [technical indicators](query)?
+    - Find me [the stock symbol for Microsoft](query)
+    - Find me [the closing price of Amazon's stock on Friday](query)
+    - Find me [the historical stock prices for Coca-Cola](query)
+    - Find me [the current stock price for Tesla and Facebook](query)
+    - Find me [the stock symbol for Alphabet Inc](query).
+    - search for [the importance of trading](query)
+    - search for [information about stop loss orders](query)
+    - Search for [news about the stock market today news today](query)
+    - Search for [news about the cryptocurrency marketrency](query)
+    - Can you find information about [swing trading](query)?'
+    - Please search for [articles about the best stocks to invest in for long-term growth](query)
+    - search for [the meaning of trading](query)
+    - search for [new articles about the importance of diversification in investing](query)
+    - find me some [articles about the methods of trading](query)
+    - search for [videos about diversification in investing](query)
+    - find me some ressources about [portfolio management](query)
+    - search for [videos about how to trade](query)

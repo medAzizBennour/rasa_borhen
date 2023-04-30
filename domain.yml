@@ -6,13 +6,21 @@ intents:
 - deny
 - goodbye
 - greet
+- inform_stock
 - mood_great
 - mood_unhappy
 - navigate
+- search
 entities:
-- stock_number
-- stock_company
 - page
+- stock_company
+- stock_number
+- query
+examples:
+- query: how to trade
+- query: how to cook pasta
+- query: Paris hotels
+- query: top 10 trading strategies
 slots:
   stock_company:
     type: text
@@ -23,6 +31,7 @@ slots:
       intent:
       - buy_stock
       - sell_stock
+      - inform_stock
   page:
     type: text
     influence_conversation: true
@@ -40,6 +49,15 @@ slots:
       intent:
       - buy_stock
       - sell_stock
+      - inform_stock
+  query:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: query
+      intent:
+      - search
 forms:
   buy_stock_form:
     required_slots:
@@ -48,6 +66,9 @@ forms:
   navigate_form:
     required_slots:
     - page
+  search_form:
+    required_slots:
+    - query
 responses:
   utter_greet:
   - text: Hey! How are you?
@@ -62,16 +83,20 @@ responses:
   - text: Bye
   utter_iamabot:
   - text: I am a bot, powered by Rasa.
+  utter_please_rephrase:
+  - text: I'm sorry, I didn't understand your request. Could you please provide a valid command or rephrase your message?
+
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 actions:
-#place order
+- action_handle_fail_inform
 - action_submit_order_form
 - action_ask_stock_company
 - action_ask_stock_number
 - validate_buy_stock_form
-# navigate
 - action_submit_navigate_form
 - action_ask_page
 - validate_navigate_form
+- action_submit_search_form
+- action_ask_query
