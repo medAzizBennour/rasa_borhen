@@ -27,7 +27,7 @@ class SubmitFilterFormAction(Action):
         response_message="processing command..."
         
 
-        response_dict = {"intent": intent, "entities": [{"filtered_obj":filtered_obj},{"criteria":criteria}], "response": response_message}
+        response_dict = {"intent": intent, "entities": {"filtered_obj":filtered_obj,"criteria":criteria}, "response": response_message}
 
         dispatcher.utter_message(json.dumps(response_dict))
         return [SlotSet("filtered_obj", None),SlotSet("criteria", None)]

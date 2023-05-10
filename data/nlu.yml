@@ -15,6 +15,21 @@ nlu:
     - goodmorning
     - goodevening
     - good afternoon
+- intent: help
+  examples: |
+    - help
+    - help me
+    - can you help me
+    - can you help me with something
+    - Can you help me with this problem?
+    - I need some assistance, can you help me out?
+    - I'm having trouble with something, could you give me a hand?
+    - I don't know what to do, can you provide some guidance?
+    - I'm stuck and don't know where to go from here, can you offer any help?
+    - Could you please assist me with this issue?
+    - I require some help with this task, could you offer some support?
+    - Can you point me in the right direction for help?
+    - I'm lost and could use some assistance, can you help me find my way?
 - intent: goodbye
   examples: |
     - cu
@@ -35,7 +50,7 @@ nlu:
     - of course
     - that sounds good
     - correct
-- intent: happy
+- intent: thank
   examples: |
     - Thank you!
     - Thanks for your help.
@@ -100,33 +115,62 @@ nlu:
     - are you sure you are a bot?
     - bot?
     - human?
-- intent: buy_stock
+- intent: place_order
   examples: |
-    - purchase some stocks
-    - purchase me a stock please
-    - i want to purchase some shares
-    - buy me a stock
-    - i want to buy a stock
-    - buy me some shares
-    - can i buy some stocks?
-    - can you buy me some shares?
-    - i'd like to buy stocks
-    - i want to buy [tesla](stock_company) stocks
-    - buy me [nvidia](stock_company) shares
-    - i want to buy some [apple](stock_company) shares
-    - buy me [20](stock_number) shares
-    - i want to buy [100](stock_number) stocks
-    - buy me [5](stock_number) stocks
-    - buy me [50](stock_number) shares of [nvidia](stock_company)
-    - buy a stock
-    - buy me another stock
-    - purchase [10](stock_number) shares of [tesla](stock_company)
-    - i want to purchase [100](stock_number) shares
-    - buy me [100](stock_number) shares of [tesla](stock_company)
-    - buy [100](stock_number) shares of [nvidia](stock_company)
-    - buy me [10](stock_number) shares of [tesla](stock_company)
-    - i want to buy [tesla](stock_company) stock
-    - buy some shares
+    - [purchase](order) some stocks
+    - [purchase](order) me a stock please
+    - i want to [purchase](order) some shares
+    - [buy](order) me a stock
+    - i want to [buy](order) a stock
+    - [buy](order) me some shares
+    - can i [buy](order) some stocks?
+    - can you [buy](order) me some shares?
+    - i'd like to [buy](order) stocks
+    - i want to [buy](order) [IBM](stock_company) stocks
+    - [buy](order) me [CW](stock_company) shares
+    - i want to [buy](order) some [AMR](stock_company) shares
+    - [buy](order) me [20](stock_number) shares
+    - i want to [buy](order) [100](stock_number) stocks
+    - [buy](order) me [5](stock_number) stocks
+    - [buy](order) me [50](stock_number) shares of [EK](stock_company)
+    - [buy](order) a stock
+    - [buy](order) me another stock
+    - [purchase](order) [10](stock_number) shares of [MSFT](stock_company)
+    - i want to [purchase](order)[100](stock_number) shares
+    - [buy](order) me [100](stock_number) shares of [Eastman Kodak](stock_company)
+    - [buy](order) [100](stock_number) shares of [American Airlines](stock_company)
+    - [buy](order) me [10](stock_number) shares of [IBM](stock_company)
+    - i want to [buy](order) [AMR](stock_company) stock
+    - [buy](order) some shares
+    - [sell](order) some stocks
+    - [sell](order) me a stock please
+    - i want to [sell](order) some shares
+    - [sell](order) me a stock
+    - i want to [sell](order) a stock
+    - [sell](order) me some shares
+    - can i [sell](order) some stocks?
+    - can you [sell](order) me some shares?
+    - i'd like to [sell](order) stocks
+    - i want to [sell](order) [CW](stock_company) stocks
+    - [sell](order) me [Cable & Wireless Ord 25P](stock_company) shares
+    - i want to [sell](order) some [Microsoft Corp](stock_company) shares
+    - [sell](order) me [20](stock_number) shares
+    - i want to [sell](order) [100](stock_number) stocks
+    - [sell](order) me [5](stock_number) stocks
+    - [sell](order) me [50](stock_number) shares of [AMR](stock_company)
+    - [sell](order) a stock
+    - [sell](order) me another stock
+    - [sell](order) [10](stock_number) shares of [CW](stock_company)
+    - i want to [sell](order) [100](stock_number) shares
+    - [sell](order) me [100](stock_number) shares of [EK](stock_company)
+    - [sell](order) [100](stock_number) shares of [International Business Machines](stock_company)
+    - [sell](order) me [10](stock_number) shares of [tesla](stock_company)
+    - i want to [sell](order) [CW](stock_company) stock
+    - [buy](order) [30](stock_number) shares of [AMR](stock_company) with [gold](destination)
+    - [buy](order)
+    - [sell](order) [20](stock_number) shares
+    - [sell](order)
+    - [buy](order) [200](stock_number) shares of [amr]{"entity": "stock_company", "value": "AMR"} with [gold](destination)
 - intent: inform_stock
   examples: |
     - [nvidia](stock_company)
@@ -145,8 +189,29 @@ nlu:
     - [100](stock_number) shares of [google](stock_company)
     - [nvidia](stock_company) stocks
     - [100](stock_number) shares of [IBM](stock_company)
-    - [nvidia](stock_company)
     - [20](stock_number) shares of [google](stock_company)
+    - [gold](destination)
+    - [200](stock_number)
+    - [150](stock_number)
+    - [cw](stock_company) [Cable & Wireless Ord 25P](stock_company)
+    - [EK](stock_company) [Eastman Kodak](stock_company)
+    - [IBM](stock_company) [International Business Machines](stock_company)
+    - [MSFT](stock_company) [Microsoft Corp.](stock_company)
+    - [AMR](stock_company) [American Airlines](stock_company)
+    - [ibm]{"entity": "stock_company", "value": "IBM"}
+    - [100](stock_number)
+    - [American airlines]{"entity": "stock_company", "value": "American Airlines"}
+    - [1000](stock_number)
+- intent: inform_page
+  examples: |
+    - [dashboard](page)
+    - [orders](page)
+    - [placements](page)
+    - [profile](page)
+    - the page is [orders](page)
+    - [settings](page)
+    - [helper](page)
+    - [orders](page)
 - intent: navigate
   examples: |
     - navigate to my [potfolio](page)
@@ -165,32 +230,11 @@ nlu:
     - go to [placements](page)
     - navigate to [dashboard](page)
     - navigate to [page](page)
-    - [orders](page)
-- intent: search
-  examples: |
-    - search for [articles about trading](query)
-    - Please search for [information about stop loss orders](query)
-    - Please look up [articles about the importance of diversification in investing](query)
-    - Can you find me some resources about [algorithmic trading](query)?
-    - Can you find me some resources about [candlestick chart patterns](query)?
-    - Please search for articles about [the best stocks to invest in for long-term growth ](query)
-    - Can you find me some information about [commodities trading](query)?
-    - Can you find me some resources about [technical indicators](query)?
-    - Find me [the stock symbol for Microsoft](query)
-    - Find me [the closing price of Amazon's stock on Friday](query)
-    - Find me [the historical stock prices for Coca-Cola](query)
-    - Find me [the current stock price for Tesla and Facebook](query)
-    - Find me [the stock symbol for Alphabet Inc](query).
-    - search for [the importance of trading](query)
-    - Search for [news about the cryptocurrency marketrency](query)
-    - Can you find information about [swing trading](query)?'
-    - Please search for [articles about the best stocks to invest in for long-term growth](query)
-    - search for [the meaning of trading](query)
-    - search for [new articles about the importance of diversification in investing](query)
-    - find me some [articles about the methods of trading](query)
-    - search for [videos about diversification in investing](query)
-    - find me some ressources about [portfolio management](query)
-    - search for [videos about how to trade](query)
+    - go to the [helper](page)
+    - navigate
+    - navigate to [orders](page)
+    - navigate to [orders](page)
+    - go to [dashboard](page)
 - intent: fallback
   examples: |
     - What is the capital of France?
@@ -202,70 +246,73 @@ nlu:
     - How do I reset my password?
     - What's the latest news?
     - Can you help me find a job?
-    - What are the best places to travel? 
-
-- intent: sell_stock
-  examples: |
-    - sell some stocks
-    - sell me a stock please
-    - i want to sell some shares
-    - sell me a stock
-    - i want to sell a stock
-    - sell me some shares
-    - can i sell some stocks?
-    - can you sell me some shares?
-    - i'd like to sell stocks
-    - i want to sell [tesla](stock_company) stocks
-    - sell me [nvidia](stock_company) shares
-    - i want to sell some [apple](stock_company) shares
-    - sell me [20](stock_number) shares
-    - i want to sell [100](stock_number) stocks
-    - sell me [5](stock_number) stocks
-    - sell me [50](stock_number) shares of [nvidia](stock_company)
-    - sell a stock
-    - sell me another stock
-    - sell [10](stock_number) shares of [tesla](stock_company)
-    - i want to sell [100](stock_number) shares
-    - sell me [100](stock_number) shares of [tesla](stock_company)
-    - sell [100](stock_number) shares of [nvidia](stock_company)
-    - sell me [10](stock_number) shares of [tesla](stock_company)
-    - i want to sell [tesla](stock_company) stock
-
+    - What are the best places to travel?
 - intent: filter
   examples: |
     - Display the list of [closed](criteria) [orders](filtered_obj)
     - filter the list of [working](criteria) [orders](filtered_obj)
-    - show me the list of [new](criteria) [orders](filtered_obj) 
-    - filter [filled](criteria) [orders](filtered_obj)
     - show me the list of [new](criteria) [orders](filtered_obj)
-    - Display the list of [filled](criteria) [orders](filtered_obj) 
-    - filter the list of [working](criteria) [orders](filtered_obj) 
-    - Show me the list of [new](criteria) [orders](filtered_obj) 
+    - filter [filled](criteria) [orders](filtered_obj)
+    - Display the list of [filled](criteria) [orders](filtered_obj)
+    - Show me the list of [new](criteria) [orders](filtered_obj)
     - Dispaly the list of [closed](criteria) [orders](filtered_obj)
-    - Show me the list of [new](criteria) [orders](filtered_obj) 
     - Show me the list of [working](criteria) [orders](filtered_obj)
-    - Show me the list of [filled](criteria) [placements](filtered_obj) 
-    - Show me the list of [working](criteria) [placements](filtered_obj) 
-    - Show me the list of [filled](criteria) [placements](filtered_obj) 
+    - Show me the list of [filled](criteria) [placements](filtered_obj)
+    - Show me the list of [working](criteria) [placements](filtered_obj)
     - Show me the list of [new](criteria) [placements](filtered_obj)
     - Show me the list of [closed](criteria) [placements](filtered_obj)
-    - Show me the list of [working](criteria) [placements](filtered_obj) 
-    - Show me the list of [new](criteria) [placements](filtered_obj)
-    - Show me the list of [paused](criteria) [placements](filtered_obj) 
-    - Display the list of [working](criteria) [placements](filtered_obj) 
-    - Filter the list of [new](criteria) [placements](filtered_obj) 
+    - Show me the list of [paused](criteria) [placements](filtered_obj)
+    - Display the list of [working](criteria) [placements](filtered_obj)
+    - Filter the list of [new](criteria) [placements](filtered_obj)
     - Display the list of [filled](criteria) [placements](filtered_obj)
-    - Show me the list of [open](criteria) [placements](filtered_obj) 
-    - Display the list of [filled](criteria) [placements](filtered_obj) 
+    - Show me the list of [open](criteria) [placements](filtered_obj)
     - Filter the list of  [paused](criteria) [placements](filtered_obj)
     - filter the list of [orders](filtered_obj) by [new](criteria)
     - filter [new](criteria) [placements](filtered_obj)
     - filter [closed](criteria) [orders](filtered_obj)
-    - filter [orders](filtered_obj) by [filled](criteria) 
-    - filter the list of [working](criteria) [orders](filtered_obj)
+    - filter [orders](filtered_obj) by [filled](criteria)
     - display the list of [working](criteria) [placements](filtered_obj)
     - filter [orders](filtered_obj)
     - filter [placements](filtered_obj)
-    
-
-
+    - filter [orders](filtered_obj) by [working](criteria)
+    - filter [orders](filtered_obj) by [new](criteria)
+- intent: search
+  examples: |
+    - search for articles about trading
+    - Please search for information about stop loss orders
+    - Please look up articles about the importance of diversification in investing
+    - Can you find me resources about algorithmic trading
+    - Can you find me some resources about candlestick chart patterns
+    - Please search for articles about [the best stocks to invest in for long-term growth
+    - Can you find me information about commodities trading
+    - Can you find me resources about technical indicators
+    - Find me the stock symbol for Microsoft
+    - Find me the closing price of Amazon's stock on Friday
+    - Find me the historical stock prices for Coca-Cola
+    - Find me the current stock price for Tesla and Facebook
+    - Find me the stock symbol for Alphabet Inc
+    - search for the importance of trading
+    - Search for news about the cryptocurrency marketrency
+    - Can you find information about swing trading
+    - Please search for articles about the best stocks to invest in for long-term growth
+    - search for the meaning of trading
+    - search for new articles about the importance of diversification in investing
+    - find me articles about the methods of trading
+    - search for videos about diversification in investing
+    - find me ressources about portfolio management
+    - search for videos about how to trade
+    - search for trading
+    - search for th best youtube channels to learn java
+    - search for the best trading strategies
+    - search for the best movies of all the time
+    - search for the definition of equity
+    - search for
+- synonym: AMR
+  examples: |
+    - amr
+- synonym: IBM
+  examples: |
+    - ibm
+- synonym: American Airlines
+  examples: |
+    - American airlines

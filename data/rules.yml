@@ -4,17 +4,19 @@ rules:
 
 - rule: Activate buy stock form
   steps:
-  - intent: buy_stock
-  - action: buy_stock_form
-  - active_loop: buy_stock_form
+  - intent: place_order
+  - action: action_retrieve_data
+
+  - action: place_order_form
+  - active_loop: place_order_form
 
 - rule: Submit buy stock form
   condition:
   # Condition that form is active.
-  - active_loop: buy_stock_form
+  - active_loop: place_order_form
   steps:
   # Form is deactivated
-  - action: buy_stock_form
+  - action: place_order_form
   - active_loop: null
   - slot_was_set:
     - requested_slot: null
@@ -47,21 +49,7 @@ rules:
 
 - rule: Activate search form
   steps:
-  - intent: search
-  - action: search_form
-  - active_loop: search_form
-  
-
-- rule: Submit search form
-  condition:
-  # Condition that form is active.
-  - active_loop: search_form
-  steps:
-  # Form is deactivated
-  - action: search_form
-  - active_loop: null
-  - slot_was_set:
-    - requested_slot: null
+  - intent: search 
   - action: action_submit_search_form
 
 - rule: Activate filter form
@@ -83,25 +71,6 @@ rules:
   - action: action_submit_filter_form
 
 
-- rule: Activate sell stock form
-  steps:
-  - intent: sell_stock
-  - action: sell_stock_form
-  - active_loop: sell_stock_form
-
-- rule: Submit sell stock form
-  condition:
-  # Condition that form is active.
-  - active_loop: sell_stock_form
-  steps:
-  # Form is deactivated
-  - action: sell_stock_form
-  - active_loop: null
-  - slot_was_set:
-    - requested_slot: null
-  # The actions we want to run when the form is submitted.
-  - action: action_submit_order_form
-
 - rule: handle error
   steps:
   - intent: inform_stock
@@ -120,6 +89,11 @@ rules:
 - rule: thank action
   steps:
     - intent: thank
+    - action: action_social_expresses
+
+- rule: help action
+  steps:
+    - intent: help
     - action: action_social_expresses
 
 - rule: i am a bot action
