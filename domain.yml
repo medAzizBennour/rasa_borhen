@@ -152,11 +152,8 @@ responses:
   - text: Not a problem! Glad I could be of assistance.
   - text: Anytime! Don't hesitate to reach out again if you need anything.
   utter_help:
-  - text: How can I assist you today?
-  - text: How may I be of help?
-  - text: What can I do for you?
-  - text: Is there anything you need help with?
-  - text: How can I support you in your trading journey?
+  - text: Sure! Here's how you can use me!
+  - text: Here's how I can assist you!
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
@@ -166,15 +163,14 @@ actions:
 - action_submit_search_form
 - action_submit_order_form
 - action_retrieve_data
-- action_handle_fail_inform
 - action_ask_stock_company
 - action_ask_stock_number
 - action_ask_destination
 - validate_place_order_form
 - action_ask_page
 - validate_navigate_form
-- action_default_fallback
 - action_ask_filtered_obj
 - action_ask_criteria
 - validate_filter_form
 - action_social_expresses
+- action_default_fallback

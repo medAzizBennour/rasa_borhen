@@ -30,6 +30,15 @@ nlu:
     - I require some help with this task, could you offer some support?
     - Can you point me in the right direction for help?
     - I'm lost and could use some assistance, can you help me find my way?
+    - how can i use you?
+    - how can you assist me
+    - how to use you
+    - what can you do?
+    - what are your advantages?
+    - what can you provide for me?
+    - i need guidance of how i can use you
+    - show me how to use you
+    - direct me to the helper
 - intent: goodbye
   examples: |
     - cu

@@ -71,11 +71,6 @@ rules:
   - action: action_submit_filter_form
 
 
-- rule: handle error
-  steps:
-  - intent: inform_stock
-  - action: action_handle_fail_inform
-
 - rule: goodbye action
   steps:
     - intent: goodbye

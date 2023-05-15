@@ -24,7 +24,7 @@ class SubmitFilterFormAction(Action):
         intent = latest_message['intent']['name']
         filtered_obj = tracker.get_slot("filtered_obj")
         criteria = tracker.get_slot("criteria")
-        response_message="processing command..."
+        response_message="Processing command..."
         
 
         response_dict = {"intent": intent, "entities": {"filtered_obj":filtered_obj,"criteria":criteria}, "response": response_message}
