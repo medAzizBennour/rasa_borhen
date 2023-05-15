@@ -23,11 +23,12 @@ class AskForStockCompanyAction(Action):
         
         # Get intent and extracted entities
         intent = latest_message['intent']['name']
+        action=tracker.get_slot("order")
         stock_number = tracker.get_slot("stock_number")
         stock_company = tracker.get_slot("stock_company")
         destination = tracker.get_slot("destination")
-
-        response_dict = {"intent": intent, "entities": {"stock_number":stock_number,"stock_company":stock_company,"destination":destination}, "response": response_message}
+        security_symbol = tracker.get_slot("security_symbol")
+        response_dict = {"intent": intent,"action":action, "entities": {"stock_number":stock_number,"stock_company":stock_company,"security_symbol":security_symbol,"destination":destination}, "response": response_message}
 
         dispatcher.utter_message(json.dumps(response_dict))
         return []
@@ -46,11 +47,12 @@ class AskForStockNumAction(Action):
         
         # Get intent and extracted entities
         intent = latest_message['intent']['name']
+        action=tracker.get_slot("order")
         stock_number = tracker.get_slot("stock_number")
         stock_company = tracker.get_slot("stock_company")
         destination = tracker.get_slot("destination")
-
-        response_dict = {"intent": intent, "entities": {"stock_number":stock_number,"stock_company":stock_company,"destination":destination}, "response": response_message}
+        security_symbol = tracker.get_slot("security_symbol")
+        response_dict = {"intent": intent,"action":action, "entities": {"stock_number":stock_number,"stock_company":stock_company,"security_symbol":security_symbol,"destination":destination}, "response": response_message}
 
         dispatcher.utter_message(json.dumps(response_dict))
         return []
@@ -69,11 +71,12 @@ class AskForDestinationAction(Action):
         
         # Get intent and extracted entities
         intent = latest_message['intent']['name']
+        action=tracker.get_slot("order")
         stock_number = tracker.get_slot("stock_number")
         stock_company = tracker.get_slot("stock_company")
         destination = tracker.get_slot("destination")
-
-        response_dict = {"intent": intent, "entities": {"stock_number":stock_number,"stock_company":stock_company,"destination":destination}, "response": response_message}
+        security_symbol = tracker.get_slot("security_symbol")
+        response_dict = {"intent": intent,"action":action, "entities": {"stock_number":stock_number,"stock_company":stock_company,"security_symbol":security_symbol,"destination":destination}, "response": response_message}
 
         dispatcher.utter_message(json.dumps(response_dict))
         return []

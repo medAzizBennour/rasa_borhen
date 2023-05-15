@@ -25,11 +25,12 @@ class SubmitOrderFormAction(Action):
         stock_number = tracker.get_slot("stock_number")
         stock_company = tracker.get_slot("stock_company")
         security_symbol = tracker.get_slot("security_symbol")
+        action=tracker.get_slot("order")
 
-        response_message="processing command..."
+        response_message="Processing command..."
         destination = tracker.get_slot("destination")
 
-        response_dict = {"intent": intent, "entities": {"stock_number":stock_number,"stock_company":stock_company,"security_symbol":security_symbol,"destination":destination}, "response": response_message}
+        response_dict = {"intent": intent,"action":action, "entities": {"stock_number":stock_number,"stock_company":stock_company,"security_symbol":security_symbol,"destination":destination}, "response": response_message}
 
         dispatcher.utter_message(json.dumps(response_dict))
-        return [SlotSet("stock_company", None),SlotSet("stock_number", None),SlotSet("destination", None)]
+        return [SlotSet("stock_company", None),SlotSet("stock_number", None),SlotSet("destination", None),SlotSet("security_symbol",None)]

@@ -35,18 +35,12 @@ class ValidateStockCompany(FormValidationAction):
     
         if securities and slot_value in security_list.keys():
             name = security_list[slot_value]
-            response_message = f"aziz: {name}"
-            dispatcher.utter_message(text=response_message)
-
         # Validation succeeded, set the value of the "stock_company" slot to slot_value
             return {"stock_company": name, "security_symbol": slot_value}
 
         elif securities and slot_value in security_list.values():
             for key, value in security_list.items():
                 if value == slot_value:
-                    response_message = f"aziz: {value}"
-                    dispatcher.utter_message(text=response_message)
-
                 # Validation succeeded, set the value of the "stock_company" slot to value and "security_symbol" slot to key
                     return {"stock_company": value, "security_symbol": key}
 
