@@ -28,7 +28,7 @@ class AskForStockCompanyAction(Action):
         stock_company = tracker.get_slot("stock_company")
         destination = tracker.get_slot("destination")
         security_symbol = tracker.get_slot("security_symbol")
-        response_dict = {"intent": intent,"action":action, "entities": {"stock_number":stock_number,"stock_company":stock_company,"security_symbol":security_symbol,"destination":destination}, "response": response_message}
+        response_dict = {"intent": intent, "entities": {"stock_number":stock_number,"action":action,"stock_company":stock_company,"security_symbol":security_symbol,"destination":destination}, "response": response_message}
 
         dispatcher.utter_message(json.dumps(response_dict))
         return []
@@ -52,7 +52,7 @@ class AskForStockNumAction(Action):
         stock_company = tracker.get_slot("stock_company")
         destination = tracker.get_slot("destination")
         security_symbol = tracker.get_slot("security_symbol")
-        response_dict = {"intent": intent,"action":action, "entities": {"stock_number":stock_number,"stock_company":stock_company,"security_symbol":security_symbol,"destination":destination}, "response": response_message}
+        response_dict = {"intent": intent, "entities": {"stock_number":stock_number,"stock_company":stock_company,"action":action,"security_symbol":security_symbol,"destination":destination}, "response": response_message}
 
         dispatcher.utter_message(json.dumps(response_dict))
         return []
@@ -76,7 +76,7 @@ class AskForDestinationAction(Action):
         stock_company = tracker.get_slot("stock_company")
         destination = tracker.get_slot("destination")
         security_symbol = tracker.get_slot("security_symbol")
-        response_dict = {"intent": intent,"action":action, "entities": {"stock_number":stock_number,"stock_company":stock_company,"security_symbol":security_symbol,"destination":destination}, "response": response_message}
+        response_dict = {"intent": intent, "entities": {"stock_number":stock_number,"action":action,"stock_company":stock_company,"security_symbol":security_symbol,"destination":destination}, "response": response_message}
 
         dispatcher.utter_message(json.dumps(response_dict))
         return []

@@ -45,7 +45,5 @@ class ValidateStockCompany(FormValidationAction):
                     return {"stock_company": value, "security_symbol": key}
 
         else:
-            response_message = "Invalid security name"
-            dispatcher.utter_message(text=response_message)
             # Validation failed, set this slot to None so that the user will be asked for the slot again
             return {"stock_company": None, "security_symbol": None}
