@@ -15,9 +15,9 @@ intents:
 - place_order
 - search
 - thank
+- stock_price
 entities:
 - page
-- filtered_obj
 - criteria
 - destination
 - stock_company
@@ -36,6 +36,8 @@ slots:
       intent:
       - place_order
       - inform_stock
+      - stock_price
+      - stock_news
   security_symbol:
     type: text
     mappings:
@@ -85,19 +87,26 @@ slots:
       - place_order
       - inform_stock
   filtered_obj:
-    type: text
+    type: categorical
     influence_conversation: true
+    values:
+    - orders
+    - placements
     mappings:
     - type: from_entity
-      entity: filtered_obj
-      intent: filter
+      entity: page
+      intent: 
+      - inform_page
+      - filter
   criteria:
     type: text
     influence_conversation: true
     mappings:
     - type: from_entity
       entity: criteria
-      intent: filter
+      intent:
+      - filter
+      - inform_filter
   stock_list:
     type: list
     influence_conversation: true
@@ -113,8 +122,8 @@ forms:
     - destination
   filter_form:
     required_slots:
-    - criteria
     - filtered_obj
+    - criteria
   navigate_form:
     required_slots:
     - page
@@ -174,3 +183,7 @@ actions:
 - validate_filter_form
 - action_social_expresses
 - action_default_fallback
+- action_stock_price
+- action_submit_stock_price
+- action_submit_stock_news
+

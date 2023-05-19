@@ -20,11 +20,11 @@ class AskForQueryAction(Action):
 
         latest_message = tracker.latest_message.get("text")
         parameter = None
-
-        if "search for" in latest_message.lower():
-            parameter = latest_message.split("search for", 1)[1].strip()
+        message=latest_message.lower()
+        if "search for" in message or "search for" in message:           
+            parameter = message.split("search for", 1)[-1].strip()
             if parameter:
-                response_message = f"Searching for {parameter} {latest_message}"
+                response_message = f"Searching for {parameter}"
             else:
                 response_message = "Please specify what you would like to search"
 

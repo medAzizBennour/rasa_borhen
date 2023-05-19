@@ -35,11 +35,6 @@ class ValidateFilteredObj(FormValidationAction):
             # validation succeeded, set the value of the "cuisine" slot to value
             return {"criteria": slot_value}
         else:
-            response_message="Invalid criteria"
-        
-
-
-            dispatcher.utter_message(text=response_message)
             # validation failed, set this slot to None so that the
             # user will be asked for the slot again
             return {"criteria": None}

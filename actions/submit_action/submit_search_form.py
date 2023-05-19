@@ -19,7 +19,7 @@ class SubmitSearchFormAction(Action):
     ) -> List[EventType]:
         # Get latest user message
         latest_message = tracker.latest_message
-        message = tracker.latest_message.get("text")
+        message = tracker.latest_message.get("text").lower()
         parameter = message.split("search for", 1)[1].strip()
 
         

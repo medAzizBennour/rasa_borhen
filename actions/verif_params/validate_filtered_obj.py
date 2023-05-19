@@ -34,11 +34,6 @@ class ValidateFilteredObj(FormValidationAction):
             # validation succeeded, set the value of the "cuisine" slot to value
             return {"filtered_obj": slot_value}
         else:
-            response_message="Invalid filtered object"
-        
-
-
-            dispatcher.utter_message(text=response_message)
             # validation failed, set this slot to None so that the
             # user will be asked for the slot again
             return {"filtered_obj": None}

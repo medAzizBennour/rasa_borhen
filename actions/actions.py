@@ -15,12 +15,14 @@ from .form_action.fallback import FallbackAction
 from .form_action.filter_form import AskForFilteredObjAction
 from .form_action.filter_form import AskForCriteriaAction
 from .form_action.social_expresses import SocialExpressesAction
+from .form_action.stock_price_form import StockPriceAction
 
 from .submit_action.submit_navigate_form import SubmitNavigateFormAction
 from .submit_action.submit_order_form import SubmitOrderFormAction
 from .submit_action.submit_search_form import SubmitSearchFormAction
 from .submit_action.submit_filter_form import SubmitFilterFormAction
-
+from .submit_action.submit_stock_price import SubmitStockPriceAction
+from .submit_action.submit_stock_price import SubmitStockNewsAction
 
 from .verif_params.validate_stock_company import ValidateStockCompany
 from .verif_params.validate_page import ValidatePage
@@ -29,30 +31,3 @@ from .verif_params.validate_criteria import ValidateFilteredObj
 
 from .retrieveDataFromDB import RetrieveDataFromDB
 
-class ValidateRestaurantForm(FormValidationAction):
-    def name(self) -> Text:
-        return "validate_restaurant_form"
-
-    async def required_slots(
-        self,
-        domain_slots: List[Text],
-        dispatcher: "CollectingDispatcher",
-        tracker: "Tracker",
-        domain: "DomainDict",
-    ) -> List[Text]:
-        additional_slots = ["outdoor_seating"]
-        if tracker.slots.get("outdoor_seating") is True:
-            # If the user wants to sit outside, ask
-            # if they want to sit in the shade or in the sun.
-            additional_slots.append("shade_or_sun")
-
-        return additional_slots + domain_slots
-    
-    async def extract_outdoor_seating(
-        self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict
-    ) -> Dict[Text, Any]:
-        text_of_last_user_message = tracker.latest_message.get("text")
-        sit_outside = "outdoor" in text_of_last_user_message
-
-        return {"outdoor_seating": sit_outside}
-    

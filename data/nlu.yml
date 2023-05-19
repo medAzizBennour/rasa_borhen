@@ -211,6 +211,34 @@ nlu:
     - [100](stock_number)
     - [American airlines]{"entity": "stock_company", "value": "American Airlines"}
     - [1000](stock_number)
+- intent: stock_price
+  examples: |
+    - What is the current price of [Google](stock_company)'s stock?
+    - Can you tell me the stock price for [Microsoft](stock_company)?
+    - What is the value of [Apple](stock_company)'s stock at the moment?
+    - What's the latest price for [Amazon](stock_company)'s stock?
+    - What is the current stock price for [TSLA](stock_company)?
+    - How much is [Facebook](stock_company)'s stock trading for right now?
+    - What's the price per share for [Netflix](stock_company)'s stock?
+    - What is the current price of [Amazon](stock_company)'s stock?
+    - Can you tell me the stock price for [IBM](stock_company)?
+    - What is the value of [NVIDIA](stock_company)'s stock at the moment?
+    - What's the latest price for [Coca-Cola](stock_company)'s stock?
+    - What is the current stock price for [PayPal](stock_company)?
+    - What's the price per share for [Zoom](stock_company)'s stock?
+    - What is the current price of [Tesla](stock_company)'s stock?
+    - Can you tell me the stock price for [Intel](stock_company)?
+    - What is the value of [Disney](stock_company)'s stock at the moment?
+    - What is the value of [Microsoft Corp](stock_company)'s stock at the moment?
+    - What is the value of [Cable & Wireless Ord](stock_company)'s stock at the moment?
+    - can you tell me the price of [Eastman Kodak](stock_company)'s stock at the moment?
+    - What's the latest price for [International Business Machines](stock_company)'s stock?
+    - What is the current stock price for [EK](stock_company)?
+    - What is the value of [AMR](stock_company)'s stock at the moment?
+    - what is the stock price of [international business machines]{"entity": "stock_company", "value": "International Business Machines"}
+    - what is the stock price of [ibm](stock_company)
+    - what is the stock price of [ek]{"entity": "stock_company", "value": "EK"}
+    - what is the stock price of [amr]{"entity": "stock_company", "value": "AMR"}
 - intent: inform_page
   examples: |
     - [dashboard](page)
@@ -244,6 +272,8 @@ nlu:
     - navigate to [orders](page)
     - navigate to [orders](page)
     - go to [dashboard](page)
+    - navigate to [helper](page)
+    - go to my [portfolio](page)
 - intent: fallback
   examples: |
     - What is the capital of France?
@@ -258,33 +288,49 @@ nlu:
     - What are the best places to travel?
 - intent: filter
   examples: |
-    - Display the list of [closed](criteria) [orders](filtered_obj)
-    - filter the list of [working](criteria) [orders](filtered_obj)
-    - show me the list of [new](criteria) [orders](filtered_obj)
-    - filter [filled](criteria) [orders](filtered_obj)
-    - Display the list of [filled](criteria) [orders](filtered_obj)
-    - Show me the list of [new](criteria) [orders](filtered_obj)
-    - Dispaly the list of [closed](criteria) [orders](filtered_obj)
-    - Show me the list of [working](criteria) [orders](filtered_obj)
-    - Show me the list of [filled](criteria) [placements](filtered_obj)
-    - Show me the list of [working](criteria) [placements](filtered_obj)
-    - Show me the list of [new](criteria) [placements](filtered_obj)
-    - Show me the list of [closed](criteria) [placements](filtered_obj)
-    - Show me the list of [paused](criteria) [placements](filtered_obj)
-    - Display the list of [working](criteria) [placements](filtered_obj)
-    - Filter the list of [new](criteria) [placements](filtered_obj)
-    - Display the list of [filled](criteria) [placements](filtered_obj)
-    - Show me the list of [open](criteria) [placements](filtered_obj)
-    - Filter the list of  [paused](criteria) [placements](filtered_obj)
-    - filter the list of [orders](filtered_obj) by [new](criteria)
-    - filter [new](criteria) [placements](filtered_obj)
-    - filter [closed](criteria) [orders](filtered_obj)
-    - filter [orders](filtered_obj) by [filled](criteria)
-    - display the list of [working](criteria) [placements](filtered_obj)
-    - filter [orders](filtered_obj)
-    - filter [placements](filtered_obj)
-    - filter [orders](filtered_obj) by [working](criteria)
-    - filter [orders](filtered_obj) by [new](criteria)
+    - Display the list of [closed](criteria) [orders](page)
+    - filter the list of [working](criteria) [orders](page)
+    - show me the list of [new](criteria) [orders](page)
+    - filter [filled](criteria) [orders](page)
+    - Display the list of [filled](criteria) [orders](page)
+    - Show me the list of [new](criteria) [orders](page)
+    - Dispaly the list of [closed](criteria) [orders](page)
+    - Show me the list of [working](criteria) [orders](page)
+    - Show me the list of [filled](criteria) [placements](page)
+    - Show me the list of [working](criteria) [placements](page)
+    - Show me the list of [new](criteria) [placements](page)
+    - Show me the list of [closed](criteria) [placements](page)
+    - Show me the list of [paused](criteria) [placements](page)
+    - Display the list of [working](criteria) [placements](page)
+    - Filter the list of [new](criteria) [placements](page)
+    - Display the list of [filled](criteria) [placements](page)
+    - Show me the list of [open](criteria) [placements](page)
+    - Filter the list of  [paused](criteria) [placements](page)
+    - filter the list of [orders](page) by [new](criteria)
+    - filter [new](criteria) [placements](page)
+    - filter [closed](criteria) [orders](page)
+    - filter [orders](page) by [filled](criteria)
+    - display the list of [working](criteria) [placements](page)
+    - filter [orders](page)
+    - filter [placements](page)
+    - filter [orders](page) by [working](criteria)
+    - filter [orders](page) by [new](criteria)
+    - filter
+    - filter [orders](page)
+    - filter [placements](page)
+    - filter by [new](criteria)
+    - filter by [working](criteria)
+- intent: stock_news
+  examples: |
+    - What are the latest news of [IBM](stock_company)'s stock?
+    - Can you provide me with the recent updates on [EK](stock_company)'s stock??
+    - what are the latest news of [AMR](stock_company)
+    - give me the latest news of [MSFT](stock_company)
+    - provide me with the latest news about [AAPL](stock_company)
+    - latest news about [TSLA](stock_company)
+    - news about [MS](stock_company)
+    - what are today's news about [IBM](stock_company)
+    - latest news about [AMR](stock_company) stock
 - intent: search
   examples: |
     - search for articles about trading

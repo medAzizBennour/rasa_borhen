@@ -17,7 +17,7 @@ class ValidatePage(FormValidationAction):
     @staticmethod
     def pages_list() -> List[Text]:
         """supported pages"""
-        pages_list = ["orders", "placements", "dashboard","setting","profile","portfolio"]
+        pages_list = ["orders", "placements", "dashboard","setting","profile","portfolio","helper"]
 
         return pages_list
 
@@ -34,11 +34,6 @@ class ValidatePage(FormValidationAction):
             # validation succeeded, set the value of the "cuisine" slot to value
             return {"page": slot_value}
         else:
-            response_message="Invalid page"
-        
-
-
-            dispatcher.utter_message(text=response_message)
             # validation failed, set this slot to None so that the
             # user will be asked for the slot again
             return {"page": None}

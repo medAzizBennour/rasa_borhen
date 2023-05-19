@@ -64,7 +64,7 @@ stories:
     - stock_number: null
   - slot_was_set:
     - destination: null
-
+  
 - story: interactive_story_2
   steps:
   - intent: place_order
@@ -181,6 +181,37 @@ stories:
   - action: action_submit_search_form
   - intent: search
   - action: action_submit_search_form
+
+- story: filter no params
+  steps:
+  - intent: filter
+  - action: filter_form
+  - active_loop: filter_form
+  - slot_was_set:
+    - requested_slot: filtered_obj
+  - intent: inform_filter
+    entities:
+    - filtered_obj: orders
+  - slot_was_set:
+    - filtered_obj: orders
+  - action: filter_form
+  - slot_was_set:
+    - filtered_obj: orders
+  - slot_was_set:
+    - requested_slot: criteria
+  - intent: inform_filter
+    entities:
+    - criteria: working
+  - slot_was_set:
+    - criteria: working
+  - action: filter_form
+  - slot_was_set:
+    - criteria: working
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_submit_filter_form
+ 
 
 - story: interactive_story_1
   steps:

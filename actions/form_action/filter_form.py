@@ -39,7 +39,7 @@ class AskForCriteriaAction(Action):
     def run(
         self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict
     ) -> List[EventType]:
-        response_message="Please specify the filter criterias"
+        response_message="Please specify the filter criteria"
 
           # Get latest user message
         latest_message = tracker.latest_message

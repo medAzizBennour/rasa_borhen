@@ -7,7 +7,7 @@ from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.forms import FormValidationAction
 from rasa_sdk.types import DomainDict
-from rasa_sdk.events import SlotSet, EventType,AllSlotsReset
+from rasa_sdk.events import SlotSet, EventType,AllSlotsReset,UserUtteranceReverted
 import json
 
 
@@ -24,4 +24,6 @@ class FallbackAction(Action):
         response_dict = {"intent": "fallback", "response":default_message}
         # Send response message using dispatcher
         dispatcher.utter_message(json.dumps(response_dict))
-        return []
+        return [{
+        "event": 'followup',
+        "name": 'action_listen'}]

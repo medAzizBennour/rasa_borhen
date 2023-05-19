@@ -46,6 +46,7 @@ rules:
   steps:
   - intent: nlu_fallback
   - action: action_default_fallback
+  - action: action_listen
 
 - rule: Activate search form
   steps:
@@ -95,3 +96,12 @@ rules:
   steps:
     - intent: bot_challenge
     - action: action_social_expresses
+- rule: stock price action
+  steps:
+    - intent: stock_price
+    - action: action_submit_stock_price
+
+- rule: stock price action
+  steps:
+    - intent: stock_news
+    - action: action_submit_stock_news
